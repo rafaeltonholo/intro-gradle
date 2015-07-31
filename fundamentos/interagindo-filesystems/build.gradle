@@ -1,7 +1,7 @@
 /*
 
-Copying files in Gradle is simple. We start by simply declaring a new task and
-specify the type as "Copy".
+Copiar arquivos com Gradle é simples. Começamos simplesmente declarando uma nova task
+e especificamos o "type" como "Copy".
 
 */
 
@@ -9,12 +9,11 @@ task copyTask(type: Copy)
 
 /*
 
-Of course, this task won't actually do anything because we haven't told it
-what file we would like copied and to where. The simplest example is simply to
-copy the contents of one folder into another. We use the Copy task's "from"
-method to add sources and the "into" method to specify the destination. This
-copy task will copy the contents of the "images" directory into the "build"
-directory.
+Obviamente, esta task não fará nada, pois não dissemos que arquivo deve ser copiado
+e nem para onde. O exemplo mais simples é simplesmente copiar o conteúdo de uma pasta
+para outra. Nós usamos o método "from" para adicionar fontes e método "into" para 
+especificar o destino. Esta task copiará os conteúdos da pasta "images" para a pasta
+"build"
 
 */
 
@@ -26,12 +25,10 @@ task copyImages(type: Copy) {
 
 /*
 
-We can specify files to include or exclude. Our filters can use wildcards,
-allowing us to do things like include all files that match a certain pattern
-or have a particular file extension. This combination of source, destination,
-inclusions, and exclusions is called a CopySpec. Let configure our task to
-only include JPEG images by calling the "include" method and passing a file
-pattern.
+Podemos especificar arquivos para incluir ou excluir. Nossos filtros podem
+utilizar expressões para incluir vários arquivos ao mesmo tempo.
+Vamos configurar nossa task para incluir somente as imagens JPEG 
+chamando o método "include" e passando um padrão de arquivos.
 
 */
 
@@ -43,16 +40,10 @@ task copyJpegs(type: Copy) {
 
 /*
 
-We can also configure a single Copy task to copy from multiple sources.
-CopySpecs can be hierarchical, which is particularly useful when we want to
-include certain files in a subfolder or exclude files from another.
+Podemos também configurar uma simples task Copy para copiar de múltiplas fontes.
+Além disso, as especificações podem ser hierárquicas.
 
-Let's configure a Copy task which copies all JPEGs into one folder and GIFs
-into another. We define two child CopySpecs, one  to include only JPEG files
-and the other to include GIFs. We also specify the folder we want to copy
-these files to. These folders will be created as subfolders under the root
-copy destination. The result being that JPEGs will be copied to "build/jpeg"
-and all .gif files will be copied to "build/gif".
+Vamos configurar uma task Copy que copia todos os JPEGS em uma pasta e os GIFS em outra.
 
 */
 
@@ -72,13 +63,9 @@ task copyImageFolders(type: Copy) {
 
 /*
 
-Gradle provides task types for creating archives like Zip or Tar files.
-Archive tasks are nearly identical to Copy tasks, except instead of specifying
-a destination directory, we specify an archive name. Let's Zip up all files in
-our "images" directory. We use the Zip task's "baseName" and "destinationDir"
-properties to tell Gradle what to name the archive and where to create it.
-Note that the "destinationDir" property takes a Java File object. Luckily the
-Gradle Project interface provides a convenience method for creating files.
+
+Gradle fornece também task type para criar arquivos compactados como Zip e Tar.
+
 
 */
 
@@ -88,14 +75,6 @@ task zipImages(type: Zip) {
     from 'images'
 }
 
-/*
-
-We can do similar things with archive tasks and child CopySpecs. We can create
-an archive which puts JPEGs and GIFs in their own directories inside the
-archive. The only difference from our Copy task example is that we specify the
-archive name and destination.
-
-*/
 
 task zipImageFolders(type: Zip) {
     baseName = 'images'
@@ -114,9 +93,7 @@ task zipImageFolders(type: Zip) {
 
 /*
 
-Sometimes we want to delete files during out builds. Usually to clean up
-previous build outputs. We can use the Delete task to delete files or folders
-in our project. Let's create a task that deletes the "build" folder.
+Para deletar arquivos, utilizamos o task type "Delete"
 
 */
 
