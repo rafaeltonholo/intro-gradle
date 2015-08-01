@@ -23,6 +23,8 @@
     http://gradle.org/docs/current/userguide/more_about_tasks.html#sec:ordering_tasks
 */
 
+
+
 task preparar {
     doLast {
         println "Preparando. Drip, drip, drip."
@@ -30,30 +32,38 @@ task preparar {
 }
 
 task derramar {
+    dependsOn preparar
     doLast {
         println "Derramando. Glug, glug, glug."
     }
 }
 
-task adicionarLeite {
-    doLast {
-        println "Adicionando Leite. Stir, stir, stir."
-    }
-}
-
 task beber {
+    dependsOn derramar
     doLast {
         println "Bebendo. Gulp, gulp, gulp."
     }
 }
 
+task adicionarLeite {
+    dependsOn derramar
+    doLast {
+        println "Adicionando Leite. Stir, stir, stir."
+    }
+}
+beber.shouldRunAfter adicionarLeite
+
 task cafePreto {
+    dependsOn derramar
+    finalizedBy beber
     doLast {
         println "Ummm, do jeito que eu gosto."
     }
 }
 
 task cafeComLeite {
+    dependsOn adicionarLeite
+    finalizedBy beber
     doLast {
         println "Ummm, do jeito que eu gosto."
     }
