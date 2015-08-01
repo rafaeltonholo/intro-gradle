@@ -15,20 +15,20 @@ task stringsAndTypes << {
 
 
     // TODO: Crie uma variável chamada foo e atribua a ela o valor 4.2
-
+    def foo = 4.2;
     // TODO: Imprima o valor e a classe de foo
-
+    println "${foo}, classe ${foo.class}";
     // TODO: Use interpolação de strings para exibir a raiz de 127
     // Dica: http://docs.oracle.com/javase/7/docs/api/java/lang/Math.html
-
+    println "Raiz de 127 é: ${Math.sqrt(127.0)}"
     // TODO: Atribua a data corrente para foo e a imprima, com o seu tipo logo a seguir.
     // Dica: http://docs.oracle.com/javase/7/docs/api/java/util/package-summary.html
-
+    foo = new Date();
+    println "Data corrente: ${foo}";
     // TODO: Utilize substring para extrair Jeremy da seguinte string:
     def hello = "Hello, Jeremy.";
-
-    
-
+    hello = hello.substring(hello.indexOf("Jeremy"), hello.length());
+    println hello;
 }
 
 task closures << {
