@@ -1,6 +1,9 @@
 /*
 
-Yep, looking good here. Let's check out the build.gradle in our app module.
+Tudo certo aqui. O wizard colocou aqui o app e nosso biblioteca como
+subprojetos.
+
+Vamos agora checar o build.gradle do app.
 
 */
 

@@ -21,9 +21,10 @@ android {
 
 /*
 
-Now if we add a compile time dependency on the imageactivity project, we can
-now access classes and resources declared in that library! Let's wire up a
-button to launch the activity from our library.
+Agora nós adicionamos uma dependência de tempo de compilação para o subprojeto
+imageactivity. Então poderemos acessas as classes e recursos declarados em nossa
+biblioteca. 
+
 
 */
 
@@ -33,3 +34,12 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.1.1'
     compile project(":imageactivity")
 }
+
+/*
+
+Vamos criar um botão para lançar a activity de nossa biblioteca.
+
+Veja na MainActivity.java
+
+
+*/
