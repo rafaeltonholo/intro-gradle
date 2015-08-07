@@ -1,18 +1,19 @@
 /*
 
-The settings.gradle file is where we tell Gradle what subprojects to include
-in the multi-project build. We already have the :app project for the Android
-app, and we'll add :javaJokes
+Este arquivo é onde falamos para o Gradle que subprojetos a incluir na build
+multi projeto. Nós já temos o projeto :app para o app Android, então vamos 
+adicionar o :javaJokes.
 
-Now javaJokes is a subproject, and if we run
+A partir deste momento, javaJokes é um subprojeto, e se rodarmos:
 
     $ ./gradlew projects
 
-We see that both app and javaJokes are subprojects.
+Veremos que ambos, app e javaJokes são subprojetos.
 
-Finally, if we want to use code from javaJokes in our app project, we need to
-declare a project dependency. Let's head over the build.gradle file in the app
-directory.
+Finalmente, queremos usar o código de javaJokes em nosso projeto app. 
+Para isso, basta declarar uma dependência no projeto app.
+Vamos verificar o build.gradle do app!
+
 
 */
 

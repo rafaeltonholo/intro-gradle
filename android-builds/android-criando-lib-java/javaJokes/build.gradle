@@ -1,7 +1,7 @@
 /*
 
-We're just making a standard Java project, following all the default
-conventions. That means our build.gradle is super simple:
+Nós estemos aqui criando um simples projeto Java, seguindo todos
+os padrões e convenções. Assim, o build.gradle fica muito simples:
 
 */
 
@@ -17,26 +17,30 @@ dependencies {
 
 /*
 
-We can now create our joke telling library. We'll create a file at
+Nós podemos agora criar nossa biblioteca de contar piadas. Vamos criar um arquivo
+em:
+
 
     javaJokes/src/main/java/com/udacity/gradle/jokes/Joker.java
 
-With contents:
+Com o seguinte conteúdo:
 
     package com.udacity.gradle.jokes;
 
     public class Joker {
         public String getJoke(){
-            return "This is totally a funny joke";
+            return "Essa é uma incrível piada";
         }
     }
 
-Now if we want to, we can navigate to the javaJokes directory and run Gradle
-tasks like usual. If we also add
+Agora se nós quisermos, podemos navegar no diretório do javaJokes e rodar
+as tasks do gradle para este subprojeto.
 
-    javaJokes/src/main/java/com/udacity/gradle/jokes/Joker.java
+Também podemos adicioar testes em:
 
-With contents:
+    /src/test/java/com/udacity/gradle/jokes/test/JokerTest.java
+
+Com conteúdo:
 
     package com.udacity.gradle.jokes.test;
 
@@ -51,14 +55,14 @@ With contents:
         }
     }
 
-We can then test our library in isolation using
+Então poderemos testar nossa biblioteca rodando:
 
     $ gradle test
 
-However, our app project doesn't yet know anything about our
-library. What we really need to do is declare a compile dependency on the
-output of this project. To do that, we need to add this Gradle project to the
-same multi-project build as the app. Let's head over to the settings.gradle
-file in the project root.
+
+Bacana! Mas, nosso app ainda não conhece esta biblioteca, então ela ainda não pode
+ser utilizada. O que nós precisamos fazer então é declarar uma dependência na configuração
+"compile". Para fazer isso, nós precisamos adicionar este projeto Gradle na arquivo que
+configura os subprojetos: settings.gradle, na raiz do projeto. Vamos verificá-lo.
 
 */
