@@ -1,0 +1,1 @@
+Veja o arquivo build.grade, e depois o app/build.gradle.

@@ -1,0 +1,46 @@
+/*
+
+O plugin de Android para Gradle inclui diversas funcionalidades.
+
+Neste projeto gradle, temos um configuração multi-project, e o app Android 
+é um subprojeto. Faremos demonstrações sobre build multi-project adiante.
+
+Este build.gradle é para o projeto raiz. Existem duas coisas a observar
+neste arquivo: 
+
+1. Declaramos uma dependência para 'com.android.tools.build:gradle:1.1.0'. 
+Aqui, declaramos uma dependência para o próprio plugin de android para gradle.
+
+
+*/
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.1.0'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+/*
+
+2. Este bloco adiciona o repositório jcenter, que passa a poder ser utilizado para todos
+subprojetos.
+
+*/
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+/*
+
+Agora vamos dar uma olhada no build.gradle que está dentro do Android app (/app)
+
+*/
