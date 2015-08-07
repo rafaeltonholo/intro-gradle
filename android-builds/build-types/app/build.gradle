@@ -19,6 +19,19 @@ android {
     }
 }
 
+/*
+
+Build types servem para controlar como nossos apps são construídos e empacotados.
+
+Por padrão, todo Android app tem dois build types, Debug e Release.
+
+Neste bloco abaixo, estamos adicionando o buildType qaTesting.
+
+Agora poderemos declarar dependências em relação a este buildType em particular.
+
+Veremos mais adiante.
+
+*/
 
 android {
     buildTypes {
