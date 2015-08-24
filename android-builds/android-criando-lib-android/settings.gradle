@@ -1,0 +1,10 @@
+/*
+
+Tudo certo aqui. O wizard colocou aqui o app e nosso biblioteca como
+subprojetos.
+
+Vamos agora checar o build.gradle do app.
+
+*/
+
+include ':app', ':imageactivity'

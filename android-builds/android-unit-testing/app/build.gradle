@@ -1,0 +1,63 @@
+/*
+
+Neste projeto, nós temos algumas classes muito simples, Echo e PaidEcho. 
+
+A classe Echo possui dois métodos, um que simplesmente retorna o seu armento, 
+e o outro que primeiro loga o argumento e depois o retorna.
+
+A classe PaidEcho faz a mesma coisa, mas para coleções como argumentos.
+
+Nós temos também alguns testes unitários para essas classes.
+
+Os testes para Echo estão em src/test/java e os testes para PaidEcho estão em
+src/testPaid/java.
+
+Nós podemos usar a task 'test' para rodar todos os testes unitários, mas quando fazemos
+obtemos o seguinte erro:
+
+    java.lang.RuntimeException: Method i in android.util.Log not mocked
+
+Parece que tentamos utilizar parte do Framework do Android (o logger) nos testes
+unitários. Mas se quisermos testar parte do framework Android, nós precisamos 
+usar um connected test (teste conectado) que roda em um dispositivo Android ou
+emulador.
+
+*/
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        applicationId "com.udacity.gradle.testing"
+        minSdkVersion 10
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+
+    productFlavors {
+        free {
+            applicationId "com.udacity.gradle.testing.free"
+        }
+        paid {
+            applicationId "com.udacity.gradle.testing.paid"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:22.1.1'
+    compile 'com.google.android.gms:play-services:7.3.0'
+    testCompile 'junit:junit:4.12'
+}

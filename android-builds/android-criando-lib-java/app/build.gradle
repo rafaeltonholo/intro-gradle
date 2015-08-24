@@ -1,0 +1,72 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        applicationId "com.udacity.gradle.javalibrarydemo"
+        minSdkVersion 10
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+/*
+
+Agora nós precisamos declarar uma dependência de tempo de compilação para
+o projeto :javaJokes.
+
+
+*/
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:22.1.1'
+    compile project(':javaJokes')
+}
+
+/*
+
+Finalmente, nós podemos utilizar a biblioteca Java. 
+
+Veja:
+
+    import com.udacity.gradle.jokes.Joker; // importando uma classe da lib javaJokes
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+        TextView textView = (TextView) rootView.findViewById(R.id.textView);
+        Joker myJoker = new Joker();
+        textView.setText(myJoker.getJoke());
+        return rootView;
+    }
+
+E então estamos prontos para executar o build. Execute-o assistindo 
+o console do Gradle.
+
+:app:preBuild UP-TO-DATE
+:app:preDebugBuild UP-TO-DATE
+:app:compileDebugNdk UP-TO-DATE
+:app:checkDebugManifest
+:app:preReleaseBuild UP-TO-DATE
+:javaJokes:compileJava
+:javaJokes:processResources UP-TO-DATE
+:javaJokes:classes
+:javaJokes:jar
+:app:prepareComAndroidSupportAppcompatV72210Library UP-TO-DATE
+:app:prepareComAndroidSupportSupportV42210Library UP-TO-DATE
+:app:prepareDebugDependencies
+
+Fácil, né?!
+
+*/

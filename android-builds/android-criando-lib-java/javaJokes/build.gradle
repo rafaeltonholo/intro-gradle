@@ -1,0 +1,68 @@
+/*
+
+Nós estemos aqui criando um simples projeto Java, seguindo todos
+os padrões e convenções. Assim, o build.gradle fica muito simples:
+
+*/
+
+apply plugin:"java"
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.11'
+}
+
+/*
+
+Nós podemos agora criar nossa biblioteca de contar piadas. Vamos criar um arquivo
+em:
+
+
+    javaJokes/src/main/java/com/udacity/gradle/jokes/Joker.java
+
+Com o seguinte conteúdo:
+
+    package com.udacity.gradle.jokes;
+
+    public class Joker {
+        public String getJoke(){
+            return "Essa é uma incrível piada";
+        }
+    }
+
+Agora se nós quisermos, podemos navegar no diretório do javaJokes e rodar
+as tasks do gradle para este subprojeto.
+
+Também podemos adicioar testes em:
+
+    /src/test/java/com/udacity/gradle/jokes/test/JokerTest.java
+
+Com conteúdo:
+
+    package com.udacity.gradle.jokes.test;
+
+    import com.udacity.gradle.jokes.Joker;
+    import org.junit.Test;
+
+    public class JokerTest {
+        @Test
+        public void test() {
+            Joker joker = new Joker();
+            assert joker.getJoke().length() != 0;
+        }
+    }
+
+Então poderemos testar nossa biblioteca rodando:
+
+    $ gradle test
+
+
+Bacana! Mas, nosso app ainda não conhece esta biblioteca, então ela ainda não pode
+ser utilizada. O que nós precisamos fazer então é declarar uma dependência na configuração
+"compile". Para fazer isso, nós precisamos adicionar este projeto Gradle na arquivo que
+configura os subprojetos: settings.gradle, na raiz do projeto. Vamos verificá-lo.
+
+*/

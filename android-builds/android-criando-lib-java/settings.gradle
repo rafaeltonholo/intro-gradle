@@ -1,0 +1,20 @@
+/*
+
+Este arquivo é onde falamos para o Gradle que subprojetos a incluir na build
+multi projeto. Nós já temos o projeto :app para o app Android, então vamos 
+adicionar o :javaJokes.
+
+A partir deste momento, javaJokes é um subprojeto, e se rodarmos:
+
+    $ ./gradlew projects
+
+Veremos que ambos, app e javaJokes são subprojetos.
+
+Finalmente, queremos usar o código de javaJokes em nosso projeto app. 
+Para isso, basta declarar uma dependência no projeto app.
+Vamos verificar o build.gradle do app!
+
+
+*/
+
+include ':app', ':javaJokes'
