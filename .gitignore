@@ -39,3 +39,4 @@ atlassian-ide-plugin.xml
 *.sublime-*
 .nb-gradle
 .java-version
+*.iml

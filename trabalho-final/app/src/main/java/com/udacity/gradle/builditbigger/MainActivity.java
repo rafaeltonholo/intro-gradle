@@ -1,11 +1,19 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+
+import com.rtsystem.citationlibrary.CitationActivity;
+
+import java.util.Random;
+
+import br.com.una.citationlib.Citation;
+import br.com.una.citationlib.CitationProvider;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -14,6 +22,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        CitationProvider.getInstance().addCitation("Eu", "Eu Mesmo");
     }
 
 
@@ -43,5 +52,17 @@ public class MainActivity extends ActionBarActivity {
         Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
     }
 
+    public void callCitation(View view) {
+        Intent intent = new Intent(this, CitationActivity.class);
+
+        Citation citation = CitationProvider.getInstance().getCitation();
+        intent.putExtra(CitationActivity.BUNDLE_KEY_CITATION, citation.getCitation());
+        Random rnd = new Random();
+        if(rnd.nextBoolean()) {
+            intent.putExtra(CitationActivity.BUNDLE_KEY_AUTHOR, citation.getAuthorName());
+        }
+
+        startActivity(intent);
+    }
 
 }
