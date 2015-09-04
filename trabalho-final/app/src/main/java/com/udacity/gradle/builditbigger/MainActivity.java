@@ -12,8 +12,8 @@ import com.rtsystem.citationlibrary.CitationActivity;
 
 import java.util.Random;
 
-import br.com.una.citationlib.Citation;
-import br.com.una.citationlib.CitationProvider;
+import br.una.citationjavalib.Citation;
+import br.una.citationjavalib.CitationProvider;
 
 
 public class MainActivity extends ActionBarActivity {
