@@ -84,7 +84,7 @@ public final class CitationProvider {
 
             do {
                 index = rnd.nextInt(this.mCitations.size());
-            } while (this.lastIndex == index);
+            } while (this.lastIndex == index && mCitations.size() > 1);
 
             citation = this.mCitations.get(index);
             this.lastIndex = index;
