@@ -1,4 +1,4 @@
-package com.udacity.gradle.builditbigger;
+package com.udacity.gradle.builditbigger.free;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.rtsystem.citationlibrary.CitationActivity;
+import com.udacity.gradle.builditbigger.R;
 
 import java.util.Random;
 
